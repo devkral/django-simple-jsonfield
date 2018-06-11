@@ -3,8 +3,13 @@
 
 from setuptools import setup
 
+install_requirements = [
+    "django"
+]
+
 setup(name='django-simple-jsonfield',
-      version="0.1",
+      version="0.2",
+      install_requires=install_requirements,
       license="Public Domain",
       url="http://github.org/devkral/django-simple-jsonfield/",
       zip_safe=True,
