@@ -22,7 +22,7 @@ def JSONField(*args, database="default", **kwargs):
         # credits to https://code.djangoproject.com/ticket/29077
 
         class result(models.TextField):
-            __qualname__ = "jsonfield.JSONField"
+            __qualname__ = "JSONField"
             __name__ = "JSONField"
             """ JSON field implementation on top of django textfield """
 
