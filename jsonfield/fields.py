@@ -6,6 +6,7 @@ hopefully some similar solution will be integrated in django
 __all__ = ("JSONField", )
 
 from django.conf import settings
+from django.core.exceptions import ValidationError
 
 
 def JSONField(*args, database="default", **kwargs):
@@ -28,7 +29,13 @@ def JSONField(*args, database="default", **kwargs):
 
             def to_dict(self, value):
                 """ convert json string to python dictionary """
-                return json.loads(value)
+                try:
+                    return json.loads(value)
+                except json.decoder.JSONDecodeError as e:
+                    raise ValidationError(
+                        message=str(e),
+                        code="json_error"
+                    )
 
             def to_json(self, value):
                 """ convert python dictionary to json string """
