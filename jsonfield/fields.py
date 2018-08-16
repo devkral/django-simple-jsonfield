@@ -49,7 +49,7 @@ def JSONField(*args, database="default", **kwargs):
 
             def to_python(self, value):
                 """ convert model input value to python dictionary """
-                if isinstance(value, dict):
+                if isinstance(value, (dict, list)):
                     return value
                 if value is None:
                     return value
