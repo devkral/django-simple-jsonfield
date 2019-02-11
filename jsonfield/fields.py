@@ -1,6 +1,6 @@
 """
-many kids presented their own json field, this is how to do it right
-hopefully some similar solution will be integrated in django
+    a jsonfield which uses available jsonfields
+    hopefully some similar solution will be integrated in django
 """
 
 __all__ = ("JSONField", )
