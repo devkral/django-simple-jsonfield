@@ -10,7 +10,7 @@ Install with
 Usage:
 ------
   from jsonfield import JSONfield
-  JSONField(whatever="Foo")
+  JSONField(default=dict)
 
   has extra keyword database: specify which database to use, defaults to "default"
 
