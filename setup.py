@@ -8,7 +8,7 @@ install_requirements = [
 ]
 
 setup(name='django-simple-jsonfield',
-      version="0.3.0",
+      version="0.3.1",
       install_requires=install_requirements,
       license="Public Domain",
       url="http://github.org/devkral/django-simple-jsonfield/",

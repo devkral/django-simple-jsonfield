@@ -26,15 +26,16 @@ class FallbackJSONField(models.TextField):
             return json.loads(value)
         except json.decoder.JSONDecodeError as e:
             raise ValidationError(
-                message=str(e),
-                code="json_error"
+                message="Error: %(error)s. Value: %(value)s",
+                code="json_error",
+                params={"error": e, "value": value}
             )
 
     def to_json(self, value):
         """ convert python dictionary to json string """
         # force parsing of strings into correct json structures
         if isinstance(value, str):
-            value = json.loads(value)
+            value = self.to_dict(value)
         return json.dumps(value)
 
     def from_db_value(self, value, expression, connection):
